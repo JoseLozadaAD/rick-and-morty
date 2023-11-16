@@ -1,0 +1,14 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package services {
+    interface EntityService {
+        + List<T> findAll()
+        + T findById(UUID id)
+        + T create(T entity)
+        + T update(UUID id, T entity)
+        + T delete(UUID id)
+    }
+}
+
+@enduml

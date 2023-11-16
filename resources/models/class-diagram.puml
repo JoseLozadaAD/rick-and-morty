@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+package models {
+    class Character {
+        - id: UUID
+        - name: String
+        - status: String
+        - specie: String
+        - dimension: String
+        - gender: Gender
+        - location: Location
+        - creationDate: Date
+        - lastUpdateDate: Date
+    }
+
+    class Location {
+        - id: UUID
+        - name: String
+        - type: String
+        - dimension: String
+        - creationDate: Date
+        - lastUpdateDate: Date
+    }
+
+    enum Gender {
+        MALE
+        FEMALE
+        GENDERLESS
+    }
+}
+
+Character::gender "1" o-- "1" Gender : contains
+Character::location "1" o-- "  1" Location::id : contains
+@enduml

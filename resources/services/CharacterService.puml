@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!include EntityService.puml
+!include ../repositories/CharacterJpaRepository.puml
+
+package services {
+    class CharacterService implements EntityService {
+        - repository: CharacterJpaRepository
+    }
+}
+
+
+CharacterService::repository ---> CharacterJpaRepository
+
+@enduml

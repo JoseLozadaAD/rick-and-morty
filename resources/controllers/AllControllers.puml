@@ -1,0 +1,7 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!include CharacterController.puml
+!include LocationController.puml
+
+@enduml

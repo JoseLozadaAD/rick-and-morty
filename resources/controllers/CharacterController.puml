@@ -1,0 +1,20 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!include ../services/CharacterService.puml
+
+package controllers {
+    class CharacterController {
+        - service: CharacterService
+        ----
+        + List<Character> getAll()
+        + Character getById(UUID id)
+        + Character save(Character character)
+        + Character update(UUID id, Character character)
+        + Character Delete(UUID id)
+    }
+}
+
+CharacterController::service --> CharacterService
+
+@enduml

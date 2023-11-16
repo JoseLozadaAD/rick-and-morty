@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!include EntityService.puml
+!include ../repositories/LocationJpaRepository.puml
+
+package services {
+    class LocationService implements EntityService {
+        - repository: LocationJpaRepository
+    }
+}
+
+LocationService::repository ---> LocationJpaRepository
+
+@enduml
