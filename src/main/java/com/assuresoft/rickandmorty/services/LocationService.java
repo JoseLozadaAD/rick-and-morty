@@ -8,10 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
- * Location service class handles all the request methods related to the Character entity. <br>
+ * Location service class handles all the request methods related to the Location collection. <br>
  * It implements {@link EntityService} interface.
  * <br> <br>
  * Responsibilities:
@@ -47,6 +48,9 @@ public class LocationService implements EntityService<Location> {
 
   @Override
   public Location create(Location entityToSave) {
+    entityToSave.setCreationDate(new Date());
+    entityToSave.setLastUpdateDate(new Date());
+
     return repository.save(entityToSave);
   }
 
@@ -56,6 +60,7 @@ public class LocationService implements EntityService<Location> {
 
     entityToUpdate.setId(locationFromDb.getId());
     entityToUpdate.setCreationDate(locationFromDb.getCreationDate());
+    entityToUpdate.setLastUpdateDate(new Date());
 
     return repository.save(entityToUpdate);
   }

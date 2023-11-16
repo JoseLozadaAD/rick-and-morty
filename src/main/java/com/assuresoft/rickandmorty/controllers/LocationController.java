@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Location controller class for handling HTTP requests related to the Location entity.
+ * Location controller class for handling HTTP requests related to the Location collection.
  * <br> <br>
  * Request:
  * <ul>

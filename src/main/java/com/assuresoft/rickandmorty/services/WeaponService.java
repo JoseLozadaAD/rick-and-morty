@@ -8,10 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
- * Weapon service class handles all the request methods related to the Character entity. <br>
+ * Weapon service class handles all the request methods related to the Weapon collection. <br>
  * It implements {@link EntityService} interface.
  * <br> <br>
  * Responsibilities:
@@ -47,6 +48,9 @@ public class WeaponService implements EntityService<Weapon> {
 
   @Override
   public Weapon create(Weapon entityToSave) {
+    entityToSave.setCreationDate(new Date());
+    entityToSave.setLastUpdateDate(new Date());
+
     return repository.save(entityToSave);
   }
 
@@ -56,6 +60,7 @@ public class WeaponService implements EntityService<Weapon> {
 
     entityToUpdate.setId(weaponFromDb.getId());
     entityToUpdate.setCreationDate(weaponFromDb.getCreationDate());
+    entityToUpdate.setLastUpdateDate(new Date());
 
     return repository.save(entityToUpdate);
   }
