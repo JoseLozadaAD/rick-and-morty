@@ -6,5 +6,6 @@ public final class Path {
 
   public static final String CHARACTER = "/api/characters";
   public static final String LOCATION = "/api/locations";
+  public static final String WEAPON = "/api/weapons";
   public static final String ID = "/{id}";
 }

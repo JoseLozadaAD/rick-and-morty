@@ -8,6 +8,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * This class represent the character entity in database
@@ -28,6 +29,9 @@ public class Character {
   @DBRef
   @JsonIgnoreProperties({"creationDate", "lastUpdateDate"})
   private Location location;
+  @DBRef
+  @JsonIgnoreProperties({"creationDate", "lastUpdateDate"})
+  private List<Weapon> weapons;
   private String specie;
   private Gender gender;
   private String dimension;
