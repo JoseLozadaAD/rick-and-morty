@@ -16,7 +16,7 @@ public class LocationTest {
   private Location location;
 
   @BeforeEach
-  public void setup() {
+  void setup() {
     location = Location.builder()
         .id(ID)
         .name(NAME)
@@ -26,7 +26,7 @@ public class LocationTest {
   }
 
   @Test
-  public void testNoArgsConstructor() {
+  void testNoArgsConstructor() {
     final Location noArgsLocation = new Location();
 
     assertNotNull(noArgsLocation);
@@ -34,7 +34,7 @@ public class LocationTest {
   }
 
   @Test
-  public void testGetters() {
+  void testGetters() {
     assertEquals(ID, location.getId());
     assertEquals(NAME, location.getName());
     assertEquals(TYPE, location.getType());
@@ -44,7 +44,7 @@ public class LocationTest {
   }
 
   @Test
-  public void testSetters() {
+  void testSetters() {
     final String newName = "New name";
     final String newType = "Gas Station";
     final String newDimension = "b25";
@@ -61,7 +61,7 @@ public class LocationTest {
   }
 
   @Test
-  public void testEquals() {
+  void testEquals() {
     final Location location1 = Location.builder().id(ID).name(NAME).build();
     final Location location2 = Location.builder().id(ID).name(NAME).build();
 

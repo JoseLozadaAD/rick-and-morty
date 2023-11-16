@@ -18,7 +18,7 @@ public class CharacterTest {
   private Location location;
 
   @BeforeEach
-  public void setup() {
+  void setup() {
     location = new Location();
     character = Character.builder()
         .id(ID)
@@ -32,7 +32,7 @@ public class CharacterTest {
   }
 
   @Test
-  public void testNoArgsConstructor() {
+  void testNoArgsConstructor() {
     final Character noArgsCharacter = new Character();
 
     assertNotNull(noArgsCharacter);
@@ -40,7 +40,7 @@ public class CharacterTest {
   }
 
   @Test
-  public void testGetters() {
+  void testGetters() {
     assertEquals(ID, character.getId());
     assertEquals(NAME, character.getName());
     assertEquals(STATUS, character.getStatus());
@@ -53,7 +53,7 @@ public class CharacterTest {
   }
 
   @Test
-  public void testSetters() {
+  void testSetters() {
     final String newName = "New name";
     final String newStatus = "Dead";
     final String newSpecie = "New specie";
@@ -78,7 +78,7 @@ public class CharacterTest {
   }
 
   @Test
-  public void testEquals() {
+  void testEquals() {
     final Gender gender = Gender.FEMALE;
 
     Character character1 = Character.builder().id(ID).name(NAME).gender(gender).build();

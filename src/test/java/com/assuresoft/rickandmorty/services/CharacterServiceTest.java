@@ -28,7 +28,7 @@ public class CharacterServiceTest {
   private Character character;
 
   @BeforeEach
-  public void setup() {
+  void setup() {
     // To initialize the mocks before every test
     MockitoAnnotations.openMocks(this);
     character = Character.builder()
@@ -38,7 +38,7 @@ public class CharacterServiceTest {
   }
 
   @Test
-  public void testFindAll() {
+  void testFindAll() {
     final List<Character> characterList = Arrays.asList(character);
 
     when(repository.findAll()).thenReturn(characterList);
@@ -48,7 +48,7 @@ public class CharacterServiceTest {
   }
 
   @Test
-  public void testFindByIdHappyPath() {
+  void testFindByIdHappyPath() {
     final Optional<Character> characterOptional = Optional.of(character);
 
     when(repository.existsById(any(UUID.class))).thenReturn(true);
@@ -59,7 +59,7 @@ public class CharacterServiceTest {
   }
 
   @Test
-  public void testFindByIdThrowException() {
+  void testFindByIdThrowException() {
     EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
       when(repository.existsById(any(UUID.class))).thenReturn(false);
       characterService.findById(ID);
@@ -69,7 +69,7 @@ public class CharacterServiceTest {
   }
 
   @Test
-  public void testCreate() {
+  void testCreate() {
     when(repository.save(any(Character.class))).thenReturn(character);
 
     assertNotNull(characterService.create(character));
@@ -77,7 +77,7 @@ public class CharacterServiceTest {
   }
 
   @Test
-  public void testUpdate() {
+  void testUpdate() {
     final Optional<Character> characterOptional = Optional.of(character);
 
     when(repository.existsById(any(UUID.class))).thenReturn(true);
@@ -89,7 +89,7 @@ public class CharacterServiceTest {
   }
 
   @Test
-  public void testDelete() {
+  void testDelete() {
     final Optional<Character> characterOptional = Optional.of(character);
 
     when(repository.existsById(any(UUID.class))).thenReturn(true);

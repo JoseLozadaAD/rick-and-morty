@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GenderTest {
   @Test
-  public void testEnumValues() {
+  void testEnumValues() {
     assertEquals("Male", Gender.MALE.getName());
     assertEquals("Female", Gender.FEMALE.getName());
     assertEquals("Genderless", Gender.GENDERLESS.getName());

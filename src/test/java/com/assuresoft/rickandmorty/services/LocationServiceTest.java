@@ -29,7 +29,7 @@ public class LocationServiceTest {
   private Location location;
 
   @BeforeEach
-  public void setup() {
+  void setup() {
     // To initialize the mocks before every test
     MockitoAnnotations.openMocks(this);
     location = Location.builder()
@@ -39,7 +39,7 @@ public class LocationServiceTest {
   }
 
   @Test
-  public void testFindAll() {
+  void testFindAll() {
     final List<Location> locationList = Arrays.asList(location);
 
     when(repository.findAll()).thenReturn(locationList);
@@ -49,7 +49,7 @@ public class LocationServiceTest {
   }
 
   @Test
-  public void testFindByIdHappyPath() {
+  void testFindByIdHappyPath() {
     final Optional<Location> locationOptional = Optional.of(location);
 
     when(repository.existsById(any(UUID.class))).thenReturn(true);
@@ -60,7 +60,7 @@ public class LocationServiceTest {
   }
 
   @Test
-  public void testFindByIdThrowException() {
+  void testFindByIdThrowException() {
     EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
       when(repository.existsById(any(UUID.class))).thenReturn(false);
       locationService.findById(ID);
@@ -70,7 +70,7 @@ public class LocationServiceTest {
   }
 
   @Test
-  public void testCreate() {
+  void testCreate() {
     when(repository.save(any(Location.class))).thenReturn(location);
 
     assertNotNull(locationService.create(location));
@@ -78,7 +78,7 @@ public class LocationServiceTest {
   }
 
   @Test
-  public void testUpdate() {
+  void testUpdate() {
     final Optional<Location> locationOptional = Optional.of(location);
 
     when(repository.existsById(any(UUID.class))).thenReturn(true);
@@ -90,7 +90,7 @@ public class LocationServiceTest {
   }
 
   @Test
-  public void testDelete() {
+  void testDelete() {
     final Optional<Location> locationOptional = Optional.of(location);
 
     when(repository.existsById(any(UUID.class))).thenReturn(true);
