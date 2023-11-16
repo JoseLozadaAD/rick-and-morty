@@ -1,9 +1,7 @@
 package com.assuresoft.rickandmorty.services;
 
 import com.assuresoft.rickandmorty.exceptions.EntityNotFoundException;
-import com.assuresoft.rickandmorty.models.Character;
 import com.assuresoft.rickandmorty.models.Location;
-import com.assuresoft.rickandmorty.repositories.CharacterJpaRepository;
 import com.assuresoft.rickandmorty.repositories.LocationJpaRepository;
 import com.assuresoft.rickandmorty.utils.ErrorMessages;
 import lombok.RequiredArgsConstructor;
@@ -11,8 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 /**
  * Location service class handles all the request methods related to the Character entity. <br>
@@ -41,7 +37,7 @@ public class LocationService implements EntityService<Location> {
   }
 
   @Override
-  public Location findById(UUID id) {
+  public Location findById(String id) {
     if (!repository.existsById(id)) {
       throw new EntityNotFoundException(String.format(ErrorMessages.LOCATION_NOT_FOUND, id));
     }
@@ -55,7 +51,7 @@ public class LocationService implements EntityService<Location> {
   }
 
   @Override
-  public Location update(UUID id, Location entityToUpdate) {
+  public Location update(String id, Location entityToUpdate) {
     final Location locationFromDb = findById(id);
 
     entityToUpdate.setId(locationFromDb.getId());
@@ -65,7 +61,7 @@ public class LocationService implements EntityService<Location> {
   }
 
   @Override
-  public Location delete(UUID id) {
+  public Location delete(String id) {
     final Location locationToDelete = findById(id);
     repository.delete(locationToDelete);
 

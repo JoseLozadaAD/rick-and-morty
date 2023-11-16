@@ -1,11 +1,10 @@
 package com.assuresoft.rickandmorty.repositories;
 
 import com.assuresoft.rickandmorty.models.Character;
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.UUID;
 
 @Repository
-public interface CharacterJpaRepository extends JpaRepository<Character, UUID> {
+public interface CharacterJpaRepository extends MongoRepository<Character, String> {
 }

@@ -31,7 +31,7 @@ public class LocationControllerTest {
   private MockMvc mockMvc;
   @MockBean
   private LocationService service;
-  private final UUID ID = UUID.randomUUID();
+  private final String ID = UUID.randomUUID().toString();
   private Location location;
 
   @BeforeEach
@@ -57,7 +57,7 @@ public class LocationControllerTest {
 
   @Test
   void testGetById() throws Exception {
-    when(service.findById(any(UUID.class))).thenReturn(location);
+    when(service.findById(any(String.class))).thenReturn(location);
 
     mockMvc.perform(get(Path.LOCATION + "/" + ID))
         .andExpect(status().isOk())
@@ -78,7 +78,7 @@ public class LocationControllerTest {
 
   @Test
   void testUpdate() throws Exception {
-    when(service.update(any(UUID.class), any(Location.class))).thenReturn(location);
+    when(service.update(any(String.class), any(Location.class))).thenReturn(location);
 
     mockMvc.perform(MockMvcRequestBuilders
             .put(Path.LOCATION + "/" + ID)
@@ -90,7 +90,7 @@ public class LocationControllerTest {
 
   @Test
   void testDelete() throws Exception {
-    when(service.delete(any(UUID.class))).thenReturn(location);
+    when(service.delete(any(String.class))).thenReturn(location);
 
     mockMvc.perform(MockMvcRequestBuilders
             .delete(Path.LOCATION + "/" + ID))

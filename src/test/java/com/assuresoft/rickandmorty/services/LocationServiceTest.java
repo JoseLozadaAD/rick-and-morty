@@ -25,7 +25,7 @@ public class LocationServiceTest {
   private LocationJpaRepository repository;
   @InjectMocks
   private LocationService locationService;
-  private final UUID ID = UUID.randomUUID();
+  private final String ID = UUID.randomUUID().toString();
   private Location location;
 
   @BeforeEach
@@ -52,8 +52,8 @@ public class LocationServiceTest {
   void testFindByIdHappyPath() {
     final Optional<Location> locationOptional = Optional.of(location);
 
-    when(repository.existsById(any(UUID.class))).thenReturn(true);
-    when(repository.findById(any(UUID.class))).thenReturn(locationOptional);
+    when(repository.existsById(any(String.class))).thenReturn(true);
+    when(repository.findById(any(String.class))).thenReturn(locationOptional);
 
     assertNotNull(locationService.findById(ID));
     assertEquals(locationOptional.get(), locationService.findById(ID));
@@ -62,7 +62,7 @@ public class LocationServiceTest {
   @Test
   void testFindByIdThrowException() {
     EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
-      when(repository.existsById(any(UUID.class))).thenReturn(false);
+      when(repository.existsById(any(String.class))).thenReturn(false);
       locationService.findById(ID);
     });
 
@@ -81,8 +81,8 @@ public class LocationServiceTest {
   void testUpdate() {
     final Optional<Location> locationOptional = Optional.of(location);
 
-    when(repository.existsById(any(UUID.class))).thenReturn(true);
-    when(repository.findById(any(UUID.class))).thenReturn(locationOptional);
+    when(repository.existsById(any(String.class))).thenReturn(true);
+    when(repository.findById(any(String.class))).thenReturn(locationOptional);
     when(repository.save(any(Location.class))).thenReturn(location);
 
     assertNotNull(locationService.update(ID, location));
@@ -93,8 +93,8 @@ public class LocationServiceTest {
   void testDelete() {
     final Optional<Location> locationOptional = Optional.of(location);
 
-    when(repository.existsById(any(UUID.class))).thenReturn(true);
-    when(repository.findById(any(UUID.class))).thenReturn(locationOptional);
+    when(repository.existsById(any(String.class))).thenReturn(true);
+    when(repository.findById(any(String.class))).thenReturn(locationOptional);
 
     assertNotNull(locationService.delete(ID));
     assertEquals(location, locationService.delete(ID));

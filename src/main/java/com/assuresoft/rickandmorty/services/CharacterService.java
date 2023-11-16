@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
  * Character service class handles all the request methods related to the Character entity. <br>
@@ -38,7 +37,7 @@ public class CharacterService implements EntityService<Character> {
   }
 
   @Override
-  public Character findById(UUID id) {
+  public Character findById(String id) {
     if (!repository.existsById(id)) {
       throw new EntityNotFoundException(String.format(ErrorMessages.CHARACTER_NOT_FOUND, id));
     }
@@ -52,7 +51,7 @@ public class CharacterService implements EntityService<Character> {
   }
 
   @Override
-  public Character update(UUID id, Character entityToUpdate) {
+  public Character update(String id, Character entityToUpdate) {
     final Character characterFromDb = findById(id);
 
     entityToUpdate.setId(characterFromDb.getId());
@@ -62,7 +61,7 @@ public class CharacterService implements EntityService<Character> {
   }
 
   @Override
-  public Character delete(UUID id) {
+  public Character delete(String id) {
     final Character characterToDelete = findById(id);
     repository.delete(characterToDelete);
 
