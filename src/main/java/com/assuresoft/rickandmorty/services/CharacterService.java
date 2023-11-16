@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 /**
@@ -54,7 +53,7 @@ public class CharacterService implements EntityService<Character> {
 
   @Override
   public Character update(UUID id, Character entityToUpdate) {
-    Character characterFromDb = findById(id);
+    final Character characterFromDb = findById(id);
 
     entityToUpdate.setId(characterFromDb.getId());
     entityToUpdate.setCreationDate(characterFromDb.getCreationDate());
@@ -64,7 +63,7 @@ public class CharacterService implements EntityService<Character> {
 
   @Override
   public Character delete(UUID id) {
-    Character characterToDelete = findById(id);
+    final Character characterToDelete = findById(id);
     repository.delete(characterToDelete);
 
     return characterToDelete;

@@ -34,6 +34,7 @@ public class Location {
   private String dimension;
   @JsonIgnore
   @OneToOne(mappedBy = "location")
+  @Getter(AccessLevel.NONE)
   private Character character;
   @CreationTimestamp
   private Date creationDate;

@@ -56,7 +56,7 @@ public class LocationService implements EntityService<Location> {
 
   @Override
   public Location update(UUID id, Location entityToUpdate) {
-    Location locationFromDb = findById(id);
+    final Location locationFromDb = findById(id);
 
     entityToUpdate.setId(locationFromDb.getId());
     entityToUpdate.setCreationDate(locationFromDb.getCreationDate());
@@ -66,7 +66,7 @@ public class LocationService implements EntityService<Location> {
 
   @Override
   public Location delete(UUID id) {
-    Location locationToDelete = findById(id);
+    final Location locationToDelete = findById(id);
     repository.delete(locationToDelete);
 
     return locationToDelete;
