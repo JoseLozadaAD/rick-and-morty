@@ -2,7 +2,7 @@ package com.assuresoft.rickandmorty.services;
 
 import com.assuresoft.rickandmorty.exceptions.EntityNotFoundException;
 import com.assuresoft.rickandmorty.models.Character;
-import com.assuresoft.rickandmorty.repositories.CharacterJpaRepository;
+import com.assuresoft.rickandmorty.repositories.CharacterMongoRepository;
 import com.assuresoft.rickandmorty.utils.ErrorMessages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ import java.util.List;
 @Transactional
 @RequiredArgsConstructor
 public class CharacterService implements EntityService<Character> {
-  private final CharacterJpaRepository repository;
+  private final CharacterMongoRepository repository;
 
   @Override
   public List<Character> findAll() {

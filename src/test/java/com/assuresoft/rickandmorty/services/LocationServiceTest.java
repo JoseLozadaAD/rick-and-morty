@@ -1,9 +1,8 @@
 package com.assuresoft.rickandmorty.services;
 
 import com.assuresoft.rickandmorty.exceptions.EntityNotFoundException;
-import com.assuresoft.rickandmorty.models.Character;
 import com.assuresoft.rickandmorty.models.Location;
-import com.assuresoft.rickandmorty.repositories.LocationJpaRepository;
+import com.assuresoft.rickandmorty.repositories.LocationMongoRepository;
 import com.assuresoft.rickandmorty.utils.ErrorMessages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 public class LocationServiceTest {
   @Mock
-  private LocationJpaRepository repository;
+  private LocationMongoRepository repository;
   @InjectMocks
   private LocationService locationService;
   private final String ID = UUID.randomUUID().toString();

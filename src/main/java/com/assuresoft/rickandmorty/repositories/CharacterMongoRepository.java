@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface CharacterJpaRepository extends MongoRepository<Character, String> {
+public interface CharacterMongoRepository extends MongoRepository<Character, String> {
 }

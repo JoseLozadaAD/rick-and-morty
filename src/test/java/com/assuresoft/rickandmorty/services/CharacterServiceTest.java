@@ -2,7 +2,7 @@ package com.assuresoft.rickandmorty.services;
 
 import com.assuresoft.rickandmorty.exceptions.EntityNotFoundException;
 import com.assuresoft.rickandmorty.models.Character;
-import com.assuresoft.rickandmorty.repositories.CharacterJpaRepository;
+import com.assuresoft.rickandmorty.repositories.CharacterMongoRepository;
 import com.assuresoft.rickandmorty.utils.ErrorMessages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 
 public class CharacterServiceTest {
   @Mock
-  private CharacterJpaRepository repository;
+  private CharacterMongoRepository repository;
   @InjectMocks
   private CharacterService characterService;
   private final String ID = UUID.randomUUID().toString();

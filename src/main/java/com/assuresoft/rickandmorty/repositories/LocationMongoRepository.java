@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface LocationJpaRepository extends MongoRepository<Location, String> {
+public interface LocationMongoRepository extends MongoRepository<Location, String> {
 }
