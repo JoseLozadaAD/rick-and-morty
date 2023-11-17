@@ -3,5 +3,6 @@
 
 !include CharacterService.puml
 !include LocationService.puml
+!include WeaponService.puml
 
 @enduml

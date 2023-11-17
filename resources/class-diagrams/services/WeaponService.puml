@@ -1,0 +1,16 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+!include EntityService.puml
+!include ../repositories/WeaponMongoRepository.puml
+
+package services {
+    class WeaponService implements EntityService {
+        - repository: WeaponMongoRepository
+    }
+}
+
+
+WeaponService::repository ---> WeaponMongoRepository
+
+@enduml

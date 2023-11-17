@@ -7,9 +7,9 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.Date;
 
 /**
- * This class represent the location entity in database
+ * This class represent the location collection in database
  *
- * @author Jose Lozada
+ * @author Josue Veliz
  */
 @Builder
 @Getter @Setter

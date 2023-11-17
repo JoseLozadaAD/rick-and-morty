@@ -8,10 +8,11 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.List;
 
 /**
- * Character service class handles all the request methods related to the Character entity. <br>
+ * Character service class handles all the request methods related to the Character collection. <br>
  * It implements {@link EntityService} interface.
  * <br> <br>
  * Responsibilities:
@@ -47,6 +48,9 @@ public class CharacterService implements EntityService<Character> {
 
   @Override
   public Character create(Character entityToSave) {
+    entityToSave.setCreationDate(new Date());
+    entityToSave.setLastUpdateDate(new Date());
+
     return repository.save(entityToSave);
   }
 
@@ -56,6 +60,7 @@ public class CharacterService implements EntityService<Character> {
 
     entityToUpdate.setId(characterFromDb.getId());
     entityToUpdate.setCreationDate(characterFromDb.getCreationDate());
+    entityToUpdate.setLastUpdateDate(new Date());
 
     return repository.save(entityToUpdate);
   }

@@ -1,7 +1,8 @@
 @startuml
 'https://plantuml.com/class-diagram
+
 package repositories {
-    interface LocationJpaRepository<extends JpaRepository> {}
+    interface WeaponMongoRepository<extends MongoRepository> {}
 }
 
 @enduml
