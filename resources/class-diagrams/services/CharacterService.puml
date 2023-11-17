@@ -2,15 +2,15 @@
 'https://plantuml.com/class-diagram
 
 !include EntityService.puml
-!include ../repositories/CharacterJpaRepository.puml
+!include ../repositories/CharacterMongoRepository.puml
 
 package services {
     class CharacterService implements EntityService {
-        - repository: CharacterJpaRepository
+        - repository: CharacterMongoRepository
     }
 }
 
 
-CharacterService::repository ---> CharacterJpaRepository
+CharacterService::repository ---> CharacterMongoRepository
 
 @enduml

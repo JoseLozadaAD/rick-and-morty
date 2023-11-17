@@ -3,5 +3,6 @@
 
 !include CharacterController.puml
 !include LocationController.puml
+!include WeaponController.puml
 
 @enduml

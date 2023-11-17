@@ -9,10 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
- * Location controller class for handling HTTP requests related to the Location entity.
+ * Location controller class for handling HTTP requests related to the Location collection.
  * <br> <br>
  * Request:
  * <ul>
@@ -37,7 +36,7 @@ public class LocationController {
   }
 
   @GetMapping(Path.ID)
-  public ResponseEntity<Location> getById(@PathVariable UUID id) {
+  public ResponseEntity<Location> getById(@PathVariable String id) {
     return ResponseEntity.ok(locationService.findById(id));
   }
 
@@ -49,14 +48,14 @@ public class LocationController {
   }
 
   @PutMapping(Path.ID)
-  public ResponseEntity<Location> update(@PathVariable UUID id, @RequestBody Location location) {
+  public ResponseEntity<Location> update(@PathVariable String id, @RequestBody Location location) {
     return ResponseEntity
         .status(HttpStatus.ACCEPTED)
         .body(locationService.update(id, location));
   }
 
   @DeleteMapping(Path.ID)
-  public ResponseEntity<Location> delete(@PathVariable UUID id) {
+  public ResponseEntity<Location> delete(@PathVariable String id) {
     return ResponseEntity
         .status(HttpStatus.ACCEPTED)
         .body(locationService.delete(id));

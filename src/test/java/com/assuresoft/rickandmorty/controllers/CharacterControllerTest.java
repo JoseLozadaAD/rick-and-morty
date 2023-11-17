@@ -31,7 +31,7 @@ public class CharacterControllerTest {
   private MockMvc mockMvc;
   @MockBean
   private CharacterService service;
-  private final UUID ID = UUID.randomUUID();
+  private final String ID = UUID.randomUUID().toString();
   private Character character;
 
   @BeforeEach
@@ -57,7 +57,7 @@ public class CharacterControllerTest {
 
   @Test
   void testGetById() throws Exception {
-    when(service.findById(any(UUID.class))).thenReturn(character);
+    when(service.findById(any(String.class))).thenReturn(character);
 
     mockMvc.perform(get(Path.CHARACTER + "/" + ID))
         .andExpect(status().isOk())
@@ -78,7 +78,7 @@ public class CharacterControllerTest {
 
   @Test
   void testUpdate() throws Exception {
-    when(service.update(any(UUID.class), any(Character.class))).thenReturn(character);
+    when(service.update(any(String.class), any(Character.class))).thenReturn(character);
 
     mockMvc.perform(MockMvcRequestBuilders
             .put(Path.CHARACTER + "/" + ID)
@@ -90,7 +90,7 @@ public class CharacterControllerTest {
 
   @Test
   void testDelete() throws Exception {
-    when(service.delete(any(UUID.class))).thenReturn(character);
+    when(service.delete(any(String.class))).thenReturn(character);
 
     mockMvc.perform(MockMvcRequestBuilders
             .delete(Path.CHARACTER + "/" + ID))

@@ -8,7 +8,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CharacterTest {
-  private final UUID ID = UUID.randomUUID();
+  private final String ID = UUID.randomUUID().toString();
   private final String NAME = "Test name";
   private final String STATUS = "Test name";
   private final Gender GENDER = Gender.MALE;

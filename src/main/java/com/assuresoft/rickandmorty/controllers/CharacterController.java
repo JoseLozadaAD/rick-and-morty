@@ -9,10 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.UUID;
 
 /**
- * Character controller class for handling HTTP requests related to the Character entity.
+ * Character controller class for handling HTTP requests related to the Character collection.
  * <br> <br>
  * Request:
  * <ul>
@@ -37,7 +36,7 @@ public class CharacterController {
   }
 
   @GetMapping(Path.ID)
-  public ResponseEntity<Character> getById(@PathVariable UUID id) {
+  public ResponseEntity<Character> getById(@PathVariable String id) {
     return ResponseEntity.ok(characterService.findById(id));
   }
 
@@ -49,14 +48,14 @@ public class CharacterController {
   }
 
   @PutMapping(Path.ID)
-  public ResponseEntity<Character> update(@PathVariable UUID id, @RequestBody Character character) {
+  public ResponseEntity<Character> update(@PathVariable String id, @RequestBody Character character) {
     return ResponseEntity
         .status(HttpStatus.ACCEPTED)
         .body(characterService.update(id, character));
   }
 
   @DeleteMapping(Path.ID)
-  public ResponseEntity<Character> delete(@PathVariable UUID id) {
+  public ResponseEntity<Character> delete(@PathVariable String id) {
     return ResponseEntity
         .status(HttpStatus.ACCEPTED)
         .body(characterService.delete(id));

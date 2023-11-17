@@ -9,20 +9,22 @@ import java.util.Date;
 /**
  * This class represent the location collection in database
  *
- * @author Jose Lozada
+ * @author Josue Veliz
  */
 @Builder
 @Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "locations")
+@Document(collection = "weapons")
 @EqualsAndHashCode(of = { "id", "name" })
-public class Location {
-  @Id
-  private String id;
-  private String name;
-  private String type;
-  private String dimension;
-  private Date creationDate;
-  private Date lastUpdateDate;
+public class Weapon {
+    @Id
+    private String id;
+    private String name;
+    private String type;
+    private float damage;
+    private String skin;
+    private Date creationDate;
+    private Date lastUpdateDate;
 }
+

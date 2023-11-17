@@ -1,8 +1,8 @@
 package com.assuresoft.rickandmorty.services;
 
 import com.assuresoft.rickandmorty.exceptions.EntityNotFoundException;
-import com.assuresoft.rickandmorty.models.Location;
-import com.assuresoft.rickandmorty.repositories.LocationMongoRepository;
+import com.assuresoft.rickandmorty.models.Weapon;
+import com.assuresoft.rickandmorty.repositories.WeaponMongoRepository;
 import com.assuresoft.rickandmorty.utils.ErrorMessages;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Location service class handles all the request methods related to the Location collection. <br>
+ * Weapon service class handles all the request methods related to the Weapon collection. <br>
  * It implements {@link EntityService} interface.
  * <br> <br>
  * Responsibilities:
@@ -24,30 +24,30 @@ import java.util.List;
  *   <li>Deleting an existing character</li>
  * </ul>
  *
- * @author Jose Lozada
+ * @author Josue Veliz
  */
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class LocationService implements EntityService<Location> {
-  private final LocationMongoRepository repository;
+public class WeaponService implements EntityService<Weapon> {
+  private final WeaponMongoRepository repository;
 
   @Override
-  public List<Location> findAll() {
+  public List<Weapon> findAll() {
     return repository.findAll();
   }
 
   @Override
-  public Location findById(String id) {
+  public Weapon findById(String id) {
     if (!repository.existsById(id)) {
-      throw new EntityNotFoundException(String.format(ErrorMessages.LOCATION_NOT_FOUND, id));
+      throw new EntityNotFoundException(String.format(ErrorMessages.WEAPON_NOT_FOUND, id));
     }
 
     return repository.findById(id).get();
   }
 
   @Override
-  public Location create(Location entityToSave) {
+  public Weapon create(Weapon entityToSave) {
     entityToSave.setCreationDate(new Date());
     entityToSave.setLastUpdateDate(new Date());
 
@@ -55,21 +55,21 @@ public class LocationService implements EntityService<Location> {
   }
 
   @Override
-  public Location update(String id, Location entityToUpdate) {
-    final Location locationFromDb = findById(id);
+  public Weapon update(String id, Weapon entityToUpdate) {
+    final Weapon weaponFromDb = findById(id);
 
-    entityToUpdate.setId(locationFromDb.getId());
-    entityToUpdate.setCreationDate(locationFromDb.getCreationDate());
+    entityToUpdate.setId(weaponFromDb.getId());
+    entityToUpdate.setCreationDate(weaponFromDb.getCreationDate());
     entityToUpdate.setLastUpdateDate(new Date());
 
     return repository.save(entityToUpdate);
   }
 
   @Override
-  public Location delete(String id) {
-    final Location locationToDelete = findById(id);
-    repository.delete(locationToDelete);
+  public Weapon delete(String id) {
+    final Weapon weaponToDelete = findById(id);
+    repository.delete(weaponToDelete);
 
-    return locationToDelete;
+    return weaponToDelete;
   }
 }

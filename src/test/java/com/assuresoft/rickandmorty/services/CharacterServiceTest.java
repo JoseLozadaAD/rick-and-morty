@@ -2,7 +2,7 @@ package com.assuresoft.rickandmorty.services;
 
 import com.assuresoft.rickandmorty.exceptions.EntityNotFoundException;
 import com.assuresoft.rickandmorty.models.Character;
-import com.assuresoft.rickandmorty.repositories.CharacterJpaRepository;
+import com.assuresoft.rickandmorty.repositories.CharacterMongoRepository;
 import com.assuresoft.rickandmorty.utils.ErrorMessages;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,10 +21,10 @@ import static org.mockito.Mockito.when;
 
 public class CharacterServiceTest {
   @Mock
-  private CharacterJpaRepository repository;
+  private CharacterMongoRepository repository;
   @InjectMocks
   private CharacterService characterService;
-  private final UUID ID = UUID.randomUUID();
+  private final String ID = UUID.randomUUID().toString();
   private Character character;
 
   @BeforeEach
@@ -51,8 +51,8 @@ public class CharacterServiceTest {
   void testFindByIdHappyPath() {
     final Optional<Character> characterOptional = Optional.of(character);
 
-    when(repository.existsById(any(UUID.class))).thenReturn(true);
-    when(repository.findById(any(UUID.class))).thenReturn(characterOptional);
+    when(repository.existsById(any(String.class))).thenReturn(true);
+    when(repository.findById(any(String.class))).thenReturn(characterOptional);
 
     assertNotNull(characterService.findById(ID));
     assertEquals(characterOptional.get(), characterService.findById(ID));
@@ -61,7 +61,7 @@ public class CharacterServiceTest {
   @Test
   void testFindByIdThrowException() {
     EntityNotFoundException exception = assertThrows(EntityNotFoundException.class, () -> {
-      when(repository.existsById(any(UUID.class))).thenReturn(false);
+      when(repository.existsById(any(String.class))).thenReturn(false);
       characterService.findById(ID);
     });
 
@@ -80,8 +80,8 @@ public class CharacterServiceTest {
   void testUpdate() {
     final Optional<Character> characterOptional = Optional.of(character);
 
-    when(repository.existsById(any(UUID.class))).thenReturn(true);
-    when(repository.findById(any(UUID.class))).thenReturn(characterOptional);
+    when(repository.existsById(any(String.class))).thenReturn(true);
+    when(repository.findById(any(String.class))).thenReturn(characterOptional);
     when(repository.save(any(Character.class))).thenReturn(character);
 
     assertNotNull(characterService.update(ID, character));
@@ -92,8 +92,8 @@ public class CharacterServiceTest {
   void testDelete() {
     final Optional<Character> characterOptional = Optional.of(character);
 
-    when(repository.existsById(any(UUID.class))).thenReturn(true);
-    when(repository.findById(any(UUID.class))).thenReturn(characterOptional);
+    when(repository.existsById(any(String.class))).thenReturn(true);
+    when(repository.findById(any(String.class))).thenReturn(characterOptional);
 
     assertNotNull(characterService.delete(ID));
     assertEquals(character, characterService.delete(ID));

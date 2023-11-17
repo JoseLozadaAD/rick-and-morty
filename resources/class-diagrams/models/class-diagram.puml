@@ -9,9 +9,20 @@ package models {
         - dimension: String
         - gender: Gender
         - location: Location
+        - weapons: List<Weapon>
         - creationDate: Date
         - lastUpdateDate: Date
     }
+
+    class Weapon {
+            - id: UUID
+            - name: String
+            - type: String
+            - damage: float
+            - skin: String
+            - creationDate: Date
+            - lastUpdateDate: Date
+        }
 
     class Location {
         - id: UUID
@@ -31,4 +42,5 @@ package models {
 
 Character::gender "1" o-- "1" Gender : contains
 Character::location "1" o-- "  1" Location::id : contains
+Character::weapons "1" o-- "  1" Weapon::id : contains
 @enduml

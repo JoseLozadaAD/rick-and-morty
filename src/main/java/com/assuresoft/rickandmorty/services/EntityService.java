@@ -1,8 +1,6 @@
 package com.assuresoft.rickandmorty.services;
 
 import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 /**
  * The EntityService<T> interface specifies
@@ -23,7 +21,7 @@ public interface EntityService<T> {
    * @param id This is the id of T object
    * @return This returns Optional of a T object after find by its id
    */
-  T findById(UUID id);
+  T findById(String id);
   /**
    * Saves an object in database
    *
@@ -38,12 +36,12 @@ public interface EntityService<T> {
    * @param entityToUpdate This is the object to update
    * @return This returns an updated T object
    */
-  T update(UUID id, T entityToUpdate);
+  T update(String id, T entityToUpdate);
   /**
    * Deletes an object existent in database
    *
    * @param id This is the id of object
    * @return This returns a deleted T object
    */
-  T delete(UUID id);
+  T delete(String id);
 }
