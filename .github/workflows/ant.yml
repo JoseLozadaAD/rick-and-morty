@@ -15,7 +15,7 @@ jobs:
         image: mongo:latest
         ports:
           - 27017:27017
-        options: --health-cmd "mongo --eval 'db.runCommand({ connectionStatus: 1 })'"
+        options: --ulimit nofile=64000:64000 --sysctl net.ipv6.conf.all.disable_ipv6=1
 
     steps:
     - name: Checkout repository
@@ -25,6 +25,7 @@ jobs:
       uses: actions/setup-java@v2
       with:
         java-version: '17'
+        distribution: 'adopt'
 
     - name: Build and test with Maven
       run: mvn -B test
