@@ -21,7 +21,7 @@ Get All Characters
 Get Character by ID
 * Endpoint: GET /api/characters/{id}
 * Description: Retrieves details of a specific character based on the provided ID.
-* Parameters: {id} - The UUID of the character.
+* Parameters: {id} - The ID of the character.
 * Response: Returns JSON containing details of the specified character.
   
 Create Character
@@ -45,7 +45,7 @@ Create Character
 Update Character by ID
 * Endpoint: PUT /api/characters/{id}
 * Description: Updates details of a specific character based on the provided ID.
-* Parameters: {id} - The UUID of the character.
+* Parameters: {id} - The ID of the character.
 * Request Body: JSON representation of the character
   ```
   {
@@ -64,7 +64,7 @@ Update Character by ID
 Delete Character by ID
 * Endpoint: DELETE /api/characters/{id}
 * Description: Deletes a specific character based on the provided ID.
-* Parameters: {id} - The UUID of the character.
+* Parameters: {id} - The ID of the character.
 * Response: Returns JSON containing details of the specified deleted character.
 
   _________________________________
@@ -77,7 +77,7 @@ Get All Locations
 Get Location by ID
 * Endpoint: GET /api/locations/{id}
 * Description: Retrieves details of a specific location based on the provided ID.
-* Parameters: {id} - The UUID of the location.
+* Parameters: {id} - The ID of the location.
 * Response: Returns JSON containing details of the specified location.
   
 Create Location
@@ -96,7 +96,7 @@ Create Location
 Update Location by ID
 * Endpoint: PUT /api/locations/{id}
 * Description: Updates details of a specific location based on the provided ID.
-* Parameters: {id} - The UUID of the location.
+* Parameters: {id} - The ID of the location.
 * Request Body: JSON representation of the location
   ```
   {
@@ -110,5 +110,38 @@ Update Location by ID
 Delete Location by ID
 * Endpoint: DELETE /api/locations/{id}
 * Description: Deletes a specific location based on the provided ID.
-* Parameters: {id} - The UUID of the location.
+* Parameters: {id} - The ID of the location.
 * Response: Returns JSON containing details of the specified deleted location.
+
+  _________________________________
+### Weapons
+Get All Weapons
+* Endpoint: GET /api/weapons
+* Description: Retrieves a list of all weapons.
+* Returns a JSON array containing weapons details.
+
+Get Weapon by ID
+* Endpoint: GET /api/weapons/{id}
+* Description: Retrieves details of a specific weapon based on the provided ID.
+* Parameters: {id} - The ID of the weapon
+* Response: Returns JSON containing details of the specified weapon.
+
+Create Weapon
+* Endpoint: POST /api/weapons
+* Description: Creates a new weapon.
+* Request Body: JSON representation of the weapon to be created.
+  ```
+  {
+    "name": "New Weapon",
+    "type": "type weapon",
+    "damage": 0.0,
+    "skin": "skin weapon"
+  }
+  ```
+* Response: Returns JSON containing details of the created weapon.
+
+Delete Weapon by ID
+* Endpoint: DELETE /api/weapons/{id}
+* Description: Deletes a specific weapon based on the provided ID.
+* Parameters: {id} - The ID of the location.
+* Response: Returns JSON containing details of the specified deleted weapon.
