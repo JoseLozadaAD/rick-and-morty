@@ -2,14 +2,14 @@
 'https://plantuml.com/class-diagram
 
 !include EntityService.puml
-!include ../repositories/LocationJpaRepository.puml
+!include ../repositories/LocationMongoRepository.puml
 
 package services {
     class LocationService implements EntityService {
-        - repository: LocationJpaRepository
+        - repository: LocationMongoRepository
     }
 }
 
-LocationService::repository ---> LocationJpaRepository
+LocationService::repository ---> LocationMongoRepository
 
 @enduml

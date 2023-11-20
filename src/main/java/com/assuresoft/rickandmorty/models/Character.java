@@ -2,7 +2,6 @@ package com.assuresoft.rickandmorty.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -11,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * This class represent the character entity in database
+ * This class represent the character collection in database
  *
  * @author Jose Lozada
  */

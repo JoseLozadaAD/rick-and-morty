@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Character controller class for handling HTTP requests related to the Character entity.
+ * Character controller class for handling HTTP requests related to the Character collection.
  * <br> <br>
  * Request:
  * <ul>
