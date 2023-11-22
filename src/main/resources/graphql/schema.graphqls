@@ -1,0 +1,11 @@
+type Query {
+    weapons: [Weapon]
+}
+
+type Weapon {
+    id: ID!
+    name: String!
+    type: String
+    damage: Float
+    skin: String
+}
