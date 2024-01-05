@@ -1,5 +1,5 @@
 
-#  Rick and Morty API
+#  Rick and Morty API with graphql
 This project is a simple API for managing characters and locations from the Rick and Morty universe. It's built using Java 17, Spring Boot, and Maven. The application uses MySQL as its database, and the provided configuration assumes a local MySQL instance.
 
 ![img.png](resources/img/class-diagram.png)
